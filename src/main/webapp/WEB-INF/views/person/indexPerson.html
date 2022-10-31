@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <title>Persons List</title>
+</head>
+
+<body>
+<div th:each ="person : ${personList}">
+    <a  th:href="@{person/{id}(id=${person.getPerson_id()})}"
+        th:text="|${person.getSurname()} ${person.getName()} ${person.getPatronymic()}, ${person.getDateOfBirth()}|">Name</a>
+
+</div>
+<br>
+<a th:href="@{person/create}" th:text="|Cоздать нового человека|">Create Person</a>
+</body>
+</html>

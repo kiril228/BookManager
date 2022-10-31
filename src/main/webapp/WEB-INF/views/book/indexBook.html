@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <title>Book list</title>
+</head>
+<body>
+<div th:each ="book : ${bookList}">
+  <a th:href="@{book/{id}(id=${book.getBook_id()})}" th:text="|
+    ${book.getBookName()}, ${book.getYearOfIssue()}|">Book</a>
+</div>
+<br>
+<a th:href="@{/book/create}" th:text="|Создать новую книгу|">Book create</a>
+</body>
+</html>
